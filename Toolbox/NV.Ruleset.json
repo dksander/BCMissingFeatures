@@ -1,0 +1,26 @@
+{
+    "name": "Rule set for NAV-Vision Development",
+    "description": "Rule set for AL Development",
+    "rules": [
+        {
+            "id": "AA0215",
+            "action": "None",
+            "justification": "Using NV Naming Convention"
+        },
+        {
+            "id":"AA0072",
+            "action": "None",
+            "justification": "Microsoft Naming convention on parameter cannot be fufilled"
+        },
+        {
+            "id":"AA0470",
+            "action": "None",
+            "justification": "The need of a comment is not nessary if variable naming is good"
+        },
+        {
+            "id": "AA0021",
+            "action": "None",
+            "justification": "Variable order is not yet relevant"
+        }
+    ]
+}

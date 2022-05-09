@@ -1,0 +1,17 @@
+{
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers": ["${PerTenantExtensionCop}","${CodeCop}","${UICop}"],
+    "al.backgroundCodeAnalysis": true,
+    "al.enableCodeActions": true,
+    "al.profilerColors": {
+        "extension": "yellow"
+    },
+    "[al]": {
+        "editor.wordBasedSuggestions": true,
+        "editor.suggestSelection": "first",
+        "editor.formatOnSave": true,
+        "editor.semanticHighlighting.enabled": true,
+        "editor.autoClosingBrackets": "always"        
+    },
+    "al.ruleSetPath": "NV.Ruleset.json"
+}

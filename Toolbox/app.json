@@ -4,7 +4,7 @@
     "publisher":  "Sander",
     "version":  "1.0.0.0",
     "brief":  "",
-    "description":  "",
+    "description":  "Extra function to make BC better",
     "privacyStatement":  "",
     "EULA":  "",
     "help":  "",
@@ -18,6 +18,7 @@
                     ],
     "platform":  "1.0.0.0",
     "application":  "19.0.0.0",
+    "runtime": "9.0",
     "idRanges":  [
                      {
                          "from":  80000,
@@ -26,7 +27,8 @@
                  ],
     "resourceExposurePolicy":  {
                                    "allowDebugging":  true,
-                                   "allowDownloadingSource":  false,
-                                   "includeSourceInSymbolFile":  false
+                                   "allowDownloadingSource":  true,
+                                   "includeSourceInSymbolFile":  true
                                }
+                               
 }
