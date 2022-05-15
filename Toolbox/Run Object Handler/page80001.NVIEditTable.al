@@ -48,13 +48,17 @@ page 80001 "NVI - Edit Table"
         EnvironmentInfo: Codeunit "Environment Information";
         CloudUriTok: Label 'https://businesscentral.dynamics.com/Live/tablet?%1';
         UnkownEnviromentErr: Label 'Enviroment Type Unknown';
-        OnPremUriTok: Label 'http://%1/%2/tablet?tenant=%3&table=%4';
+        TableParmTok: Label '&table=%1';
+        OnPremUriTok: text;
     begin
         if EnvironmentInfo.IsSaaS() then
             exit(StrSubstNo(CloudUriTok, TableID));
-        if EnvironmentInfo.IsOnPrem() then
-            exit(StrSubstNo(OnPremUriTok, 'bc20pte', 'BC', 'default', TableID));
-
+        if EnvironmentInfo.IsOnPrem() then begin
+            OnPremUriTok := GETURL(CLIENTTYPE::Web, COMPANYNAME, OBJECTTYPE::Page, 80001);
+            OnPremUriTok := OnPremUriTok.Replace('&page=80001', StrSubstNo(TableParmTok, TableID));
+            OnPremUriTok := OnPremUriTok.Replace('?company', 'tablet?company');
+            exit(OnPremUriTok);
+        end;
         error(UnkownEnviromentErr)
     end;
 

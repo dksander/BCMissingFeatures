@@ -8,7 +8,7 @@ Param(
     [string] $auth = "",
     [pscredential] $credential = $null,
     [string] $licenseFileUrl = "",
-    [string] $insiderSasToken = "",
+    [string] $insiderSasToken = "?sv=2020-08-04&ss=b&srt=sco&spr=https&st=2022-03-15T00%3A00%3A00Z&se=2022-10-01T00%3A00%3A00Z&sp=rl&sig=4TsLNCqEFYV0xiPbjaasoGsoiKRimVNmYgSYTs9y2pk%3D",
     [switch] $fromVSCode
 )
 
