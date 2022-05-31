@@ -15,12 +15,12 @@ page 80000 "NVI - Main menu"
                 field(RunObjectReq; RunObject)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Press to open Toolbox function Edit table';
-                    Caption = 'Edit Table';
+                    ToolTip = 'Press to open Toolbox function Run Object';
+                    Caption = 'Run Object';
                     Editable = false;
                     trigger OnDrillDown()
                     begin
-                        page.RunModal(Page::"NVI - Edit Table");
+                        page.RunModal(Page::"NVI - Run Object");
                     end;
                 }
             }
@@ -38,6 +38,17 @@ page 80000 "NVI - Main menu"
                         Report.RunModal(Report::"NVI - Job Queue Entry Handler");
                     end;
                 }
+                field(LicensOverview; LicensOverview)
+                {
+                    ApplicationArea = All;
+                    caption = 'Licens Overview';
+                    ToolTip = 'Press to open licens overview';
+                    Editable = false;
+                    trigger OnDrillDown()
+                    begin
+                        page.RunModal(page::"NVI - License overview");
+                    end;
+                }
             }
         }
     }
@@ -45,9 +56,11 @@ page 80000 "NVI - Main menu"
     begin
         RunObject := 'Edit records in table';
         JobQueueHandler := 'Job Queue Mass Handler';
+        LicensOverview := 'Licens Overview'
     end;
 
     var
         RunObject: text;
         JobQueueHandler: Text;
+        LicensOverview: text;
 }

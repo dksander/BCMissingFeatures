@@ -3,6 +3,7 @@
     "al.codeAnalyzers": ["${PerTenantExtensionCop}","${CodeCop}","${UICop}"],
     "al.backgroundCodeAnalysis": true,
     "al.enableCodeActions": true,
+    "al.browser": "Chrome",
     "al.profilerColors": {
         "extension": "yellow"
     },
