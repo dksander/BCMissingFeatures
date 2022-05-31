@@ -5,6 +5,7 @@ page 80005 "NVI - License overview"
     PageType = List;
     SourceTable = "License Permission";
     UsageCategory = Administration;
+    Editable = false;
 
     layout
     {
@@ -55,6 +56,45 @@ page 80005 "NVI - License overview"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            group(Objects)
+            {
+                action(ShowAvailableObjects)
+                {
+                    Caption = 'Show Available Objects only';
+                    ToolTip = 'Filter list to only show Objects not in use';
+                    Image = AvailableToPromise;
+                    ApplicationArea = all;
+                    trigger OnAction()
+                    var
+                        AllObjWithCaption: Record AllObjWithCaption;
+                    begin
+                        if ShowMarked then begin
+                            Rec.Reset();
+                            if Rec.FindSet(false, false) then
+                                repeat
+                                    Rec.ClearMarks();
+                                until Rec.Next() = 0;
+                        end
+                        else begin
+                            Rec.Reset();
+                            Rec.SetRange("Object Number", 50000, 99999);
+                            if Rec.FindSet(false, false) then
+                                repeat
+                                    if not AllObjWithCaption.Get(Rec."Object Type", Rec."Object Number") then
+                                        Rec.Mark(true);
+                                until Rec.Next() = 0;
+                            Rec.MarkedOnly();
+                            ShowMarked := true;
+                        end;
+                    end;
+                }
+            }
+        }
+    }
     trigger OnAfterGetRecord()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -66,4 +106,5 @@ page 80005 "NVI - License overview"
 
     var
         ObjectExist: Boolean;
+        ShowMarked: Boolean;
 }

@@ -54,7 +54,7 @@ page 80000 "NVI - Main menu"
     }
     trigger OnOpenPage()
     begin
-        RunObject := 'Edit records in table';
+        RunObject := 'Run Object';
         JobQueueHandler := 'Job Queue Mass Handler';
         LicensOverview := 'Licens Overview'
     end;

@@ -127,7 +127,7 @@ page 80001 "NVI - Run Object"
             Rec."Object Type"::Table:
                 Hyperlink(GetUrl(ClientType::Current, CompanyName, ObjectType::Table, Rec."Object ID"));
             else
-                Message(StrSubstNo(ObjectInvalidMsg, Rec."Object Type", Rec."Object Name");
+                Message(StrSubstNo(ObjectInvalidMsg, Rec."Object Type", Rec."Object Name"));
         end;
     end;
 
