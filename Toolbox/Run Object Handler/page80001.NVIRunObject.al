@@ -132,8 +132,11 @@ page 80001 "NVI - Run Object"
     end;
 
     local procedure EditData()
+    var
+        TableDataList: Page "NVI - Table Data List";
     begin
         Rec.TestField("Object Type", Rec."Object Type"::Table);
-
+        TableDataList.SetTable(Rec."Object ID");
+        TableDataList.Run();
     end;
 }
